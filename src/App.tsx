@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import Logo from './components/Logo';
 import Nav from './components/Nav';
@@ -9,7 +9,7 @@ import Weddings from './pages/Weddings';
 import Clubs from './pages/Clubs';
 import About from './pages/About';
 import Book from './pages/Book';
-import { media } from './content/copy';
+import { features, media } from './content/copy';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -73,7 +73,7 @@ function Shell() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/weddings" element={<Weddings />} />
-        <Route path="/clubs" element={<Clubs />} />
+        <Route path="/clubs" element={features.sets ? <Clubs /> : <Navigate to="/" replace />} />
         <Route path="/about" element={<About />} />
         <Route path="/book" element={<Book />} />
       </Routes>

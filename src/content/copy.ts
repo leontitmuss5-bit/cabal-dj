@@ -1,6 +1,11 @@
 // Single source of truth for site copy. Edit here, not in components.
 // Rule: say less. If a line could be on any DJ site, cut it.
 
+// Flip to true when the Sets page is ready to go live again.
+export const features = {
+  sets: false,
+};
+
 export const brand = {
   name: 'CaBaL',
   email: 'bookings@cabal.dj', // TODO confirm real address

@@ -1,8 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
+import { features } from '../content/copy';
 
 // Tame-style: pill buttons flank the logo, which lands top-centre.
 const left = [
-  { to: '/clubs', label: 'Sets' },
+  ...(features.sets ? [{ to: '/clubs', label: 'Sets' }] : []),
   { to: '/weddings', label: 'Events' },
 ];
 const right = [

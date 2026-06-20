@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { home, brand, media } from '../content/copy';
+import { features, home, brand, media } from '../content/copy';
 
 // Text marquee — duplicated content so the -50% translate loops seamlessly
 function Marquee() {
@@ -49,7 +49,6 @@ export default function Home() {
             <span className="mono hero-rise" style={{ color: 'var(--dim)', ['--d' as string]: `${base}s` }}>{home.kicker}</span>
             <div className="hero-rise" style={{ display: 'flex', gap: 12, marginTop: 8, ['--d' as string]: `${base + 0.15}s` }}>
               <Link to="/book" className="pill pill-lg pill-accent">Book us</Link>
-              <Link to="/clubs" className="pill pill-lg">Listen</Link>
             </div>
           </div>
         </section>
@@ -63,10 +62,12 @@ export default function Home() {
               <span className="gl-note">weddings · parties · corporate</span>
               Events
             </Link>
-            <Link to="/clubs" className="giant-link">
-              <span className="gl-note">sets · mixes · the rooms we've played</span>
-              Sets
-            </Link>
+            {features.sets && (
+              <Link to="/clubs" className="giant-link">
+                <span className="gl-note">sets · mixes · the rooms we've played</span>
+                Sets
+              </Link>
+            )}
             <Link to="/about" className="giant-link">
               <span className="gl-note">leon · cade · blake</span>
               About

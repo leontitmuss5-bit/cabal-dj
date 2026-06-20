@@ -432,9 +432,21 @@ section { padding: clamp(56px, 9vh, 120px) 0; position: relative; }
 }
 
 /* ── mobile ───────────────────────────────────────────── */
+@keyframes logoInMobile {
+  from { opacity: 0; transform: scale(1.04); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 @media (max-width: 720px) {
   section { padding: clamp(40px, 7vh, 80px) 0; }
   .content { padding-top: 72px; }
+
+  /* Safari iOS paints a white rect when animating filter on PNG logos */
+  .logo-2d img {
+    animation: logoInMobile 900ms var(--ease) 250ms both;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
 
   .top-nav { top: calc(10px + env(safe-area-inset-top)); }
   .pill { padding: 8px 11px; font-size: 0.56rem; letter-spacing: 0.05em; }
